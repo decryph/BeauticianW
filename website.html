@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shruti | Independent Beautician</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F5F0EB', // Linen
+                            DEFAULT: '#D7C0AE', // Muted Beige
+                            dark: '#967E76', // Taupe
+                            accent: '#EEE3CB', // Cream
+                            text: '#2D2A2A', // Soft Black
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar for Chrome/Safari/Opera */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F0EB; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D7C0AE; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #967E76; 
+        }
+        
+        /* Fade in animation classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-text antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-light/90 backdrop-blur-sm transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl tracking-wider font-semibold text-brand-text">
+                SHRUTI <span class="text-brand-dark text-sm block font-sans tracking-[0.3em] uppercase font-light">Artistry</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center text-sm tracking-widest uppercase font-light">
+                <a href="#home" class="hover:text-brand-dark transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-dark transition-colors">About</a>
+                <a href="#services" class="hover:text-brand-dark transition-colors">Services</a>
+                <a href="#testimonials" class="hover:text-brand-dark transition-colors">Love</a>
+                <a href="#contact" class="px-6 py-2 border border-brand-text hover:bg-brand-text hover:text-white transition-all duration-300">Book Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-brand-text focus:outline-none" onclick="toggleMenu()">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-light border-t border-gray-200 shadow-lg flex flex-col items-center py-8 space-y-6 text-sm tracking-widest uppercase md:hidden">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#services" onclick="toggleMenu()">Services</a>
+            <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+            <a href="#contact" onclick="toggleMenu()">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" alt="Beautician Aesthetic" class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-light/30 to-brand-light/80 mix-blend-overlay"></div>
+            <div class="absolute inset-0 bg-black/10"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 fade-in-up">
+            <p class="text-sm md:text-base tracking-[0.4em] uppercase text-white mb-4 drop-shadow-md">Enhancing Your Natural Self</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 drop-shadow-lg italic">
+                Simply <span class="not-italic">Radiant</span>
+            </h1>
+            <a href="#services" class="inline-block mt-8 px-8 py-3 bg-white/90 text-brand-text font-light tracking-widest text-xs uppercase hover:bg-brand-dark hover:text-white transition-all duration-300">
+                View Services
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative fade-in-up">
+                <div class="absolute top-4 -left-4 w-full h-full border border-brand-dark z-0"></div>
+                <img src="https://images.unsplash.com/photo-1707231510379-bb21c262e2c6?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shruti, a beautician, seated and smiling in a softly lit studio setting; professional and calm tone" loading="lazy" class="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
+            </div>
+            <div class="space-y-6 fade-in-up delay-100">
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-text">Hello, I'm Shruti.</h2>
+                <p class="text-brand-dark font-serif italic text-xl">"Beauty isn't about changing who you are, it's about revealing it."</p>
+                <p class="leading-relaxed font-light text-gray-600">
+                    As an independent beautician with over 5 years of experience, I specialize in minimalist makeup and skincare treatments that prioritize the health of your skin. My philosophy is rooted in the belief that makeup should feel weightless and look effortless.
+                </p>
+                <p class="leading-relaxed font-light text-gray-600">
+                    Whether it's for your wedding day, a photoshoot, or simply a self-care afternoon, I bring a calm, professional energy to every appointment.
+                </p>
+                <div class="pt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" alt="Signature" class="h-12 opacity-50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-xs tracking-[0.3em] text-brand-dark uppercase">Menu</span>
+                <h2 class="font-serif text-4xl mt-3">Curated Services</h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Service Item 1 -->
+                <div class="group flex justify-between items-baseline border-b border-gray-100 pb-4 cursor-default fade-in-up">
+                    <div>
+                        <h3 class="font-serif text-xl md:text-2xl group-hover:text-brand-dark transition-colors">Bridal Makeup</h3>
+                        <p class="text-xs text-gray-400 mt-1 font-light tracking-wider">INCLUDES TRIAL & SKIN PREP</p>
+                    </div>
+                    <span class="font-sans font-light text-lg">$350</span>
+                </div>
+
+                <!-- Service Item 2 -->
+                <div class="group flex justify-between items-baseline border-b border-gray-100 pb-4 cursor-default fade-in-up delay-100">
+                    <div>
+                        <h3 class="font-serif text-xl md:text-2xl group-hover:text-brand-dark transition-colors">Event Glam</h3>
+                        <p class="text-xs text-gray-400 mt-1 font-light tracking-wider">SOFT GLAM / EVENING LOOK</p>
+                    </div>
+                    <span class="font-sans font-light text-lg">$120</span>
+                </div>
+
+                <!-- Service Item 3 -->
+                <div class="group flex justify-between items-baseline border-b border-gray-100 pb-4 cursor-default fade-in-up delay-200">
+                    <div>
+                        <h3 class="font-serif text-xl md:text-2xl group-hover:text-brand-dark transition-colors">Hairstyling</h3>
+                        <p class="text-xs text-gray-400 mt-1 font-light tracking-wider">BLOWOUTS / UPDOS</p>
+                    </div>
+                    <span class="font-sans font-light text-lg">$85+</span>
+                </div>
+
+                <!-- Service Item 4 -->
+                <div class="group flex justify-between items-baseline border-b border-gray-100 pb-4 cursor-default fade-in-up delay-300">
+                    <div>
+                        <h3 class="font-serif text-xl md:text-2xl group-hover:text-brand-dark transition-colors">Facial Massage</h3>
+                        <p class="text-xs text-gray-400 mt-1 font-light tracking-wider">LYMPHATIC DRAINAGE & SCULPTING</p>
+                    </div>
+                    <span class="font-sans font-light text-lg">$60</span>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-gray-500 font-light italic text-sm">* Custom packages available upon consultation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-0">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="h-80 relative group overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+            </div>
+            <div class="h-80 relative group overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+            </div>
+            <div class="h-80 relative group overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-brand-light relative">
+        <div class="absolute top-10 left-10 text-9xl font-serif text-brand-dark opacity-5">"</div>
+        
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-xs tracking-[0.3em] text-brand-dark uppercase">Testimonials</span>
+                <h2 class="font-serif text-4xl mt-3">Kind Words</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-10 shadow-sm fade-in-up">
+                    <div class="text-brand-dark mb-4 flex">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="font-serif italic text-gray-600 mb-6 text-lg">"Shruti has magic hands. She understood exactly what I wanted—glowy, natural, and not cakey. I felt so beautiful on my wedding day."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider">Priya S.</p>
+                            <p class="text-[10px] text-gray-400 uppercase">Bridal Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-10 shadow-sm fade-in-up delay-100">
+                    <div class="text-brand-dark mb-4 flex">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="font-serif italic text-gray-600 mb-6 text-lg">"The best minimal makeup artist in town. The environment she creates is so relaxing. Highly recommended!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider">Anita K.</p>
+                            <p class="text-[10px] text-gray-400 uppercase">Party Glam</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-10 shadow-sm fade-in-up delay-200">
+                    <div class="text-brand-dark mb-4 flex">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="font-serif italic text-gray-600 mb-6 text-lg">"I booked a consultation for my skin, and her advice was honest and simple. My skin hasn't looked this good in years."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=686&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider">Elena R.</p>
+                            <p class="text-[10px] text-gray-400 uppercase">Skincare</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-brand-text text-brand-light">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="fade-in-up">
+                    <span class="text-xs tracking-[0.3em] text-brand-dark uppercase">Contact</span>
+                    <h2 class="font-serif text-4xl mt-3 mb-6">Let's Create Beauty</h2>
+                    <p class="font-light text-gray-400 mb-8 max-w-md">Ready to book your appointment or have a question? Fill out the form, or reach out via email. I typically reply within 24 hours.</p>
+                    
+                    <div class="space-y-4 text-sm font-light tracking-wide">
+                        <div class="flex items-center gap-4">
+                            <i class="ph ph-envelope-simple text-xl"></i>
+                            <a href="mailto:hello@shrutiartistry.com" class="hover:text-white transition-colors">hello@shrutiartistry.com</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="ph ph-instagram-logo text-xl"></i>
+                            <a href="#" class="hover:text-white transition-colors">@shruti.artistry</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="ph ph-map-pin text-xl"></i>
+                            <span>Independent Studio, Downtown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="space-y-6 fade-in-up delay-100" onsubmit="event.preventDefault(); alert('Thank you for your message, Shruti will be in touch shortly!');">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label class="text-xs uppercase tracking-widest mb-2 text-gray-500">Name</label>
+                            <input type="text" class="bg-transparent border-b border-gray-700 py-2 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-700" placeholder="Jane Doe">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs uppercase tracking-widest mb-2 text-gray-500">Date</label>
+                            <input type="text" class="bg-transparent border-b border-gray-700 py-2 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-700" placeholder="DD/MM/YYYY">
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-xs uppercase tracking-widest mb-2 text-gray-500">Service</label>
+                        <select class="bg-transparent border-b border-gray-700 py-2 focus:outline-none focus:border-white transition-colors text-gray-400">
+                            <option class="bg-brand-text">Bridal Makeup</option>
+                            <option class="bg-brand-text">Party Glam</option>
+                            <option class="bg-brand-text">Hairstyling</option>
+                            <option class="bg-brand-text">Consultation</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-xs uppercase tracking-widest mb-2 text-gray-500">Message</label>
+                        <textarea rows="3" class="bg-transparent border-b border-gray-700 py-2 focus:outline-none focus:border-white transition-colors text-white placeholder-gray-700" placeholder="Tell me about your event..."></textarea>
+                    </div>
+                    <button class="mt-4 px-10 py-3 border border-brand-light text-brand-light text-xs uppercase tracking-widest hover:bg-brand-light hover:text-brand-text transition-all duration-300 w-full md:w-auto">
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-text text-center py-8 border-t border-gray-800">
+        <p class="text-xs text-gray-600 font-light uppercase tracking-widest">&copy; 2025 Shruti Artistry. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('bg-brand-light/90', 'bg-white/95');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('bg-white/95', 'bg-brand-light/90');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
